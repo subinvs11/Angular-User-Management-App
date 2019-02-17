@@ -7,7 +7,8 @@ import { LocalStorage } from '@ngx-pwa/local-storage';
   providedIn: 'root'
 })
 export class AuthenticationService {
-  private apiDomain = 'http://35.200.169.173/api/';
+  //zzz private apiDomain = 'http://35.200.169.173/api/';
+  private apiDomain = 'http://127.0.0.1:8000/api/';
 
   constructor(private http: HttpClient,
     private localStorage: LocalStorage) { }
@@ -18,6 +19,7 @@ export class AuthenticationService {
    */
   authenticateUser(loginData) {
     console.log(loginData);//zzz
+    console.log(typeof loginData);//zzz
     
     return this.http.post(this.apiDomain + 'login/', loginData).pipe(
       map(
